@@ -16,10 +16,11 @@ resource "docker_image" "nginx" {
 
 resource "docker_container" "nginx_test" {
   image = docker_image.nginx.image_id
-  name  = "server-web-terraform"
+  name  = "var.container_name"
+  depends_on = [docker_container.redis_server]
   network_mode = "bridge"
   ports {
     internal = 80
-    external = 8080
+    external = var.external_port
   }
 }
