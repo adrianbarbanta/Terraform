@@ -1,9 +1,11 @@
-variable "container_name" {
-  type    = string
-  default = "server-web-terraform"
+variable "nginx_port" {
+  description = "Portul extern pentru Nginx"
+  type        = number
+  default     = 30080
 }
 
-variable "external_port" {
-  type    = number
-  default = 8080
+variable "tomcat_port" {
+  description = "Portul extern pentru Tomcat"
+  type        = number
+  default     = 30081
 }
